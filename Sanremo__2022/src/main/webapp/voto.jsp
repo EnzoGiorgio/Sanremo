@@ -1,7 +1,8 @@
   <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
       pageEncoding="ISO-8859-1"%>
-        <%@ page import="java.util.*"%>
-           <%@ page import="Sanremo.Artista"%>
+    <%@ page import="java.util.ArrayList" %>
+     <%@ page import="Sanremo.Artista" %>
+      <%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,23 +26,22 @@
 	</style>
 	
 	<%
-	
-		ArrayList<Artista> artista = (ArrayList<Artista>)session.getAttribute("cantanti");
-	
-		int indice = Integer.valueOf(request.getParameter("indice")).intValue();
-	
+		session.setAttribute("token","true");
+		ArrayList<Artista> listaArtisti = (ArrayList<Artista>)session.getAttribute("listaArtisti");
+	    int i = Integer.valueOf(request.getParameter("indice")).intValue();
+	    
 	%>
 	
 <body>
-	<header>Sanremo__2022</header>
+	<header> Voti Sanremo 2022</header>
 	
 	<div class="card" style="width: 250px;">
-		<img src="<%= artista.get(indice).getUrlimg()%>" class="card-img-top" height="200" width="200">
+		<img src="<%=listaArtisti.get(i).getUrlimg()%>" class="card-img-top" height="200" width="200">
 		<div class="card-body">
-			<h5 class="card-title"><%= artista.get(indice).getNome() %></h5>
+			<h5 class="card-title"><%=listaArtisti.get(i).getNome()%></h5>
 			<div class="row">
-				<div class="col"><a class="btn btn-danger" href="confermadelvoto.jsp?voto=negativo&indice=<%= indice %>">Dislike</a></div>
-				<div class="col"><a class="btn btn-success" href="confermadelvoto.jsp?voto=positivo&indice=<%= indice %>">Like</a></div>
+				<div class="col"><a class="btn btn-danger" href="confermadelvoto.jsp?voto=negativo&indice=<%=i %>">Dislike</a></div>
+				<div class="col"><a class="btn btn-success" href="confermadelvoto.jsp?voto=positivo&indice=<%=i %>">Like</a></div>
 			</div>
 		</div>
 	</div>

@@ -9,7 +9,7 @@
 		
 		<%
 		
-			ArrayList<Artista> artista = (ArrayList<Artista>)session.getAttribute("cantanti");
+		ArrayList<Artista> listaArtisti = new ArrayList<Artista>();
 			
 		
 	        String cantanti = request.getParameter("nome");
@@ -18,15 +18,15 @@
 	        int i = Integer.valueOf(request.getParameter("indice")).intValue();
 	
 	        if(voto.equals("positivo")){
-	            int tot = artista.get(i).getPositivi() + 1;
+	            int tot = listaArtisti.get(i).getPositivi() + 1;
 	
-	            artista.get(i).setPositivi(tot);
+	            listaArtisti.get(i).setPositivi(tot);
 	
 	        }
 	        if(voto.equals("negativo")){
-	            int tot = artista.get(i).getNegativi() + 1;
+	            int tot = listaArtisti.get(i).getNegativi() + 1;
 	
-	            artista.get(i).setNegativi(tot);
+	            listaArtisti.get(i).setNegativi(tot);
 	
 	        }
 	
