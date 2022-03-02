@@ -37,7 +37,7 @@ String token=(String)session.getAttribute("token");
 
 if(token!="true"){
 	
-ArrayList<Artista> listaArtisti = new ArrayList<Artista>();
+		ArrayList<Artista> listaArtisti = new ArrayList<Artista>();
       
        Artista art1 = new Artista();
        art1.setNome("Achille");

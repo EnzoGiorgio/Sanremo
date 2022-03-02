@@ -9,7 +9,15 @@
 		
 		<%
 		
-		ArrayList<Artista> listaArtisti = new ArrayList<Artista>();
+			ArrayList<Artista> listaArtisti = (ArrayList<Artista>)session.getAttribute("listaArtista");
+		
+			
+			
+				for(int j=0;j<20;j++){
+					System.out.println(listaArtisti);
+				}
+			
+			
 			
 		
 	        String cantanti = request.getParameter("nome");
